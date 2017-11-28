@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 //     })
 // });
 
-app.use(express.static(__dirname + '/Public'));
+app.use(express.static(__dirname + '/public'));
 
 hbs.registerHelper('get_current_year', () => {
     return new Date().getFullYear();
@@ -50,6 +50,12 @@ app.get('/about', (req, res) => {
     res.render('about.hbs', {
         page_title: 'About page',
     });
+});
+
+app.get('/project', (req, res) => {
+    res.render('project.hbs', {
+        page_title: 'Projects'
+    })
 });
 
 app.get('/bad', (req, res) => {
