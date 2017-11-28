@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const PORT = process.env.PORT || 3000;
+
 let app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -55,8 +57,6 @@ app.get('/bad', (req, res) => {
         error: 'Unable to make request'
     })
 });
-
-const PORT = 3000;
 
 app.listen(PORT, () => {
     console.log(`Express server started, listening on port ${PORT}`)
